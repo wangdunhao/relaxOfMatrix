@@ -1,0 +1,59 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID"
+         version="3.0">
+  <display-name>关系矩阵</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <!--log4j2-->
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>/log4j2.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+       <!-- <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>-->
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--填写属性标签，为集成与融合做准备-->
+    <context-param>
+        <param-name>webAppAttributeLabel</param-name>
+        <param-value>层次聚类</param-value>
+    </context-param>
+    <!--功能描述，描述软件的主要功能-->
+    <context-param>
+        <param-name>webAppDescription</param-name>
+        <param-value>关系矩阵通过基于改进模块度的Louvain算法实现层次聚类并通过矩阵进行可视化</param-value>
+    </context-param>
+    <!--webApp图标，从静态资源中选择图片，将图片单独发给我-->
+    <context-param>
+        <param-name>webAppIcon</param-name>
+        <param-value>创新方法管理平台.png</param-value>
+    </context-param>
+    <!--webApp版本号，当前软件版本迭代次数-->
+    <context-param>
+        <param-name>webAppVersion</param-name>
+        <param-value>v2.0</param-value>
+    </context-param>
+    <!--webApp分类，从知识工程、TRIZ、质量分析、企业管理、产品设计、创新思维、其他选择一项-->
+    <context-param>
+        <param-name>webAppCategory</param-name>
+        <param-value>其他</param-value>
+    </context-param>
+</web-app>
